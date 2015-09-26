@@ -9,7 +9,9 @@ RUN \
   yum -y install git gcc gcc-c++ make flex bison gperf ruby \
   openssl-devel freetype-devel fontconfig-devel libicu-devel sqlite-devel \
   libpng-devel libjpeg-devel bzip2 && \
-  yum install -y curl wget && \
+  yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel readline-devel tk-devel && \
+  yum install -y python-devel && \
+  yum install -y curl wget  && \
   yum install -y epel-release && \
   yum install -y nodejs npm --enablerepo=epel
 
