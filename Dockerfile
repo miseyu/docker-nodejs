@@ -2,18 +2,22 @@
 FROM centos:centos7
 
 ENV PHANTOMJS_VERSION 1.9.8
+ENV NODE_VERION 0.10.23
 
 # update & base packages
 RUN \
   yum update -y && \
-  yum -y install git gcc gcc-c++ make flex bison gperf ruby \
+  yum -y install git gcc gcc-c++ make flex bison gperf ruby perl \
   openssl-devel freetype-devel fontconfig-devel libicu-devel sqlite-devel \
   libpng-devel libjpeg-devel bzip2 && \
   yum install -y zlib-devel bzip2-devel openssl-devel ncurses-devel readline-devel tk-devel && \
   yum install -y python-devel && \
-  yum install -y curl wget  && \
-  yum install -y epel-release && \
-  yum install -y nodejs npm --enablerepo=epel
+  yum install -y curl wget
+
+
+# node
+RUN wget -O - http://nodejs.org/dist/v0.10.23/node-v0.10.23.tar.gz | tar xvzf - && \
+    cd node-v0.10.23 && ./configure --prefix=/usr && make && make install 
 
 # phantomjs
 RUN \
