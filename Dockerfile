@@ -1,7 +1,7 @@
 # Pull base image.
 FROM centos:centos7
 
-ENV PHANTOMJS_VERSION 1.9.8
+ENV PHANTOMJS_VERSION 2.0.0
 ENV NODE_VERION 0.10.23
 
 # update & base packages
